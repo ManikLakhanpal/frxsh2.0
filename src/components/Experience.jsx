@@ -28,8 +28,10 @@ const ResponsiveText = () => {
     <>
       <Text
         fontSize={fontSize}
-        position={[0, 0, 0]}
+        position={[0, 0.5, 0]}
         color="#ffffff"
+        emissiveIntensity={100}
+        emissive="#ffffff"
         anchorX="center"
         anchorY="middle"
       >
@@ -68,7 +70,7 @@ const Cube = () => {
   });
 
   return (
-    <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} position={[5,-0.7,0]}>
+    <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} position={[4.5,-0.2,0]}>
       <boxGeometry args={[geometrySize, geometrySize, geometrySize]} />
       <MeshTransmissionMaterial
         color="white"
@@ -146,7 +148,7 @@ function TextScene() {
     <>
     <div className='h-screen bg-black w-full'>
     <Canvas>
-      <ambientLight color='#fffff' intensity={100}/>
+      <ambientLight color='#fffff' intensity={10000}/>
       <Cube />
       <Donut />
       <ResponsiveText/>

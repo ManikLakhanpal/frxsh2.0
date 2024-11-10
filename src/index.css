@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
-
 #root {
   width: 100%;
   height: 100%;
+  cursor: none;
 }
 
 body {
@@ -15,5 +16,5 @@ body {
 }
 
 .quote{
-  font-family: 'Playwrite GB S',sans-serif;
+  font-family: sans-serif;
 }
