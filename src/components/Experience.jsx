@@ -3,7 +3,6 @@ import { Text, OrbitControls, MeshTransmissionMaterial } from '@react-three/drei
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import '../output.css';
-import { motion } from 'framer-motion-3d';
 
 
 const ResponsiveText = () => {
@@ -69,7 +68,7 @@ const Cube = () => {
   });
 
   return (
-    <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} position={[4,-1,0]}>
+    <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} position={[5,-0.7,0]}>
       <boxGeometry args={[geometrySize, geometrySize, geometrySize]} />
       <MeshTransmissionMaterial
         color="white"
@@ -90,26 +89,25 @@ const Cube = () => {
 const Donut = () => {
   const meshRef = useRef();
   const [geometrySize, setGeometrySize] = useState(Math.max(1, window.innerWidth / 900));
-  useEffect(() => {
-    const handleResize = () => {
-      setGeometrySize(Math.max(1, window.innerWidth / 1000));
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const [scroll, setScroll] = useState(0);
   useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.01;
       meshRef.current.rotation.x += 0.005;
     }
   });
-
+  useEffect(() => {
+    const handleResize = () => {
+      setGeometrySize(Math.max(1, window.innerWidth / 1000));
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} position={[-4,1,0]} scale={geometrySize/1.5}>
-      <torusGeometry args={[1.5,0.5,100,100]} />
+      <torusGeometry args={[1.2,0.5,100,100]} />
       <MeshTransmissionMaterial
         color="white"
         thickness={0.5}
@@ -145,6 +143,7 @@ const CursorLight = () => {
 
 function TextScene() {
   return (
+    <>
     <div className='h-screen bg-black w-full'>
     <Canvas>
       <ambientLight color='#fffff' intensity={100}/>
@@ -153,6 +152,8 @@ function TextScene() {
       <ResponsiveText/>
     </Canvas>
     </div>
+     
+    </>
   );
 }
 
