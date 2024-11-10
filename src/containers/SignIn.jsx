@@ -10,7 +10,7 @@ export default function SignIn() {
     gsap.fromTo(
       imageRef.current,
       { x: '200%', opacity: 0 }, // Starting state
-      { x: '0%', opacity: 1, duration: 1, ease: 'power2.out' } // Ending state
+      { x: '0%', opacity: 1, duration: 0.1, ease: 'none' } // Ending state
     );
   }, []);
 
