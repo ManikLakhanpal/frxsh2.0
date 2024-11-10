@@ -5,6 +5,7 @@ import CustomCursor from "./components/cursor/Cursor";
 import NavigationBar from "./containers/NavigationBar";
 import { Route, Routes } from "react-router-dom";
 import SignIn from "./containers/SignIn";
+import SignUp from "./containers/SignUp";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         {/* Dynamic Route for Shop Categories */}
         <Route path="/shop/:category" element={<Shop />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Context>
   );

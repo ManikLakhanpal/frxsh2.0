@@ -44,8 +44,8 @@ export default function SignIn() {
                 </button>
               </div>
               <p className="text-center">
-                Don't have an account?
-                <a href="/sign-up" className="text-blue-500 hover:underline ml-1">
+                Don't have an account?&nbsp;
+                <a href="/signup" className="text-blue-500 hover:underline">
                   Sign Up
                 </a>
               </p>
@@ -55,7 +55,7 @@ export default function SignIn() {
         <div className="hidden justify-center items-center lg:flex">
           <div className="overflow-hidden">
             <img
-              src="⁠ https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/men/coolman.jpg"
+              src="https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/men/coolman.jpg"
               className="max-w-full h-full rounded-md"
             />
           </div>
