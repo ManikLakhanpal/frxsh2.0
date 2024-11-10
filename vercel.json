@@ -1,0 +1,7 @@
+{
+    "routes": [
+        { "src": "/shop/.*", "dest": "/shop" },
+        { "src": "/signin", "dest": "/signin" },
+        { "src": "/", "dest": "/" }
+    ]
+}
