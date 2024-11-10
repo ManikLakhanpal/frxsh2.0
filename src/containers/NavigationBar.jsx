@@ -41,7 +41,7 @@ function NavigationBar() {
   }, [showNav]);
 
   return (
-    <div className="w-full sticky top-0 h-16 z-50 text-white bg-black">
+    <div className="w-full sticky top-0 h-16 z-50 text-white">
       <nav
         ref={mainNavBar}
         style={{
@@ -64,11 +64,11 @@ function NavigationBar() {
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
-          <a href="./#products">PRODUCTS</a>
+          <a href="./shop">PRODUCTS</a>
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
-          <a href="./#projects">CONTACT US</a>
+          <a href="./#contact">CONTACT US</a>
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
