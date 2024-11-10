@@ -64,7 +64,7 @@ function NavigationBar() {
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
-          <a href="/shop/men">PRODUCTS</a>
+          <a href="/#products">PRODUCTS</a>
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>

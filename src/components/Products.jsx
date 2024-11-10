@@ -34,7 +34,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center mt-[7rem] justify-center">
+    <div id="products" className="bg-black min-h-screen flex flex-col items-center mt-[7rem] justify-center">
       <motion.h1
         className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
         whileHover={{ color: "#FFD700", transition: { duration: 0.3 } }}
