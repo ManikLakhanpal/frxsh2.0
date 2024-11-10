@@ -95,7 +95,7 @@ const Products = () => {
           <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <h3
               className="text-white text-xl font-semibold rounded-md p-3 bg-zinc-600"
-              onClick={() => (window.location.href = "/shop/shoes")}
+              onClick={() => (window.location.href = "/shop/sneekers")}
             >
               Sneakers
             </h3>
