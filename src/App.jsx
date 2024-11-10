@@ -6,6 +6,7 @@ import NavigationBar from "./containers/NavigationBar";
 import { Route, Routes } from "react-router-dom";
 import SignIn from "./containers/SignIn";
 import SignUp from "./containers/SignUp";
+import ContactUs from "./containers/ContactUs";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/shop/:category" element={<Shop />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Context>
   );

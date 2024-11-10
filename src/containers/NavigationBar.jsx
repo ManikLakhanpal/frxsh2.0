@@ -68,11 +68,11 @@ function NavigationBar() {
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
-          <a href="/">CONTACT US</a>
+          <a href="/contact">CONTACT US</a>
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
-          <a href="/">LOG IN</a>
+          <a href="/signin">LOG IN</a>
           <div className={underlineClasses}></div>
         </div>
       </nav>
@@ -101,10 +101,10 @@ function NavigationBar() {
           <a className="w-fit p-3" href="/shop/men" onClick={() => setShowNav(false)}>
             PRODUCTS
           </a>
-          <a className="w-fit p-3" href="/" onClick={() => setShowNav(false)}>
+          <a className="w-fit p-3" href="/contact" onClick={() => setShowNav(false)}>
             CONTACT US
           </a>
-          <a className="w-fit p-3" href="/" onClick={() => setShowNav(false)}>
+          <a className="w-fit p-3" href="/signin" onClick={() => setShowNav(false)}>
             LOG IN
           </a>
         </div>
