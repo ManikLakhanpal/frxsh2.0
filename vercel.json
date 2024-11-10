@@ -1,7 +1,6 @@
 {
-    "routes": [
-        { "src": "/shop/.*", "dest": "/containers/Shop" },
-        { "src": "/signin", "dest": "/containers/SignIn" },
-        { "src": "/", "dest": "/" }
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/" }
     ]
-}
+  }
+  
