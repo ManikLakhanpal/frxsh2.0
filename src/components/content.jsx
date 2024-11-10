@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const textVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.5 } },
+  hover: { color: "#FFD700", transition: { duration: 0.3 } }, // Added scale and color change
 };
 
 const Content = () => {
@@ -27,6 +28,8 @@ const Content = () => {
   const [ref7, inView7] = useInView({ triggerOnce: true, threshold: 0.5 });
   const [ref8, inView8] = useInView({ triggerOnce: true, threshold: 0.5 });
   const [ref9, inView9] = useInView({ triggerOnce: true, threshold: 0.5 });
+
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     if (inView1) controls1.start("visible");
@@ -69,90 +72,76 @@ const Content = () => {
             animate={controls1}
             variants={textVariants}
             ref={ref1}
+            whileHover="hover" // Added hover effect
           >
             For the Students
           </motion.p>
           <motion.p
             className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl ml-[10vw] sm:ml-[15vw] md:ml-[20vw] lg:ml-[25vw]"
-            initial="hidden"
+            initial="hidden "
             animate={controls2}
             variants={textVariants}
             ref={ref2}
+             whileHover="hover"
           >
             By the Students
           </motion.p>
         </div>
       </div>
       <div className="w-[90vw] ml-[5vw]">
-        <div className="min-h-[50%] flex flex-row flex-nowrap mt-28 gap-6">
-          <div className="flex flex-col">
+        <div className="flex flex-row flex-nowrap mt-28 gap-6">
+          <div className="flex flex-col min-w-[60%]">
             <motion.p
               className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
-              initial="hidden"
-              animate={controls3}
               variants={textVariants}
               ref={ref3}
+              initial="hidden"
+  animate={controls3}
+              whileHover="hover" // Added hover effect
+              onHoverStart={() => setHover(true)}
+              onHoverEnd={() => setHover(false)}
             >
-              Supporting
+              {hover ? "At":  "Supporting" }
             </motion.p>
             <motion.p
               className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
-              initial="hidden"
-              animate={controls4}
               variants={textVariants}
               ref={ref4}
+              initial="hidden"
+  animate={controls4}
+              whileHover="hover" // Added hover effect
+              
+              onHoverStart={() => setHover(true)}
+              onHoverEnd={() => setHover(false)}
             >
-              Young
+             {hover ? "Every" : "Young" }
             </motion.p>
             <motion.p
               className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
-              initial="hidden"
-              animate={controls5}
               variants={textVariants}
               ref={ref5}
+              initial="hidden"
+  animate={controls5}
+              whileHover="hover" // Added hover effect
+              onHoverStart={() => setHover(true)}
+              onHoverEnd={() => setHover(false)}
             >
-              Entrepreneurs
+              {hover ?  "Step" : "Entrepreneurs"}
             </motion.p>
           </div>
-          <div className="bg-white min-h-full w-full rounded-lg">
-            {/* Additional content can go here */}
-          </div>
-        </div>
-        <div className="flex flex-row mt-20 items-end">
-          <div className="bg-white min-h-full w-full rounded-lg">
-            {/* Additional content can go here */}
-          </div>
-          <div>
-            <div className="items-start">
-              <motion.p
-                className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
-                initial="hidden"
-                animate={controls6}
-                variants={textVariants}
-                ref={ref6}
-              >
-                At
-              </motion.p>
-              <motion.p
-                className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
-                initial="hidden"
-                animate={controls7}
-                variants={textVariants}
-                ref={ref7}
-              >
-                Every
-              </motion.p>
-              <motion.p
-                className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
-                initial="hidden"
-                animate={controls8}
-                variants={textVariants}
-                ref={ref8}
-              >
-                Step
-              </motion.p>
-            </div>
-          </div>
+        <motion.div
+  initial="hidden"
+  animate={controls4}
+  variants={textVariants}
+  ref={ref4}
+  className="invert min-h-full w-full rounded-lg flex justify-center items-center"
+>
+  <img 
+    src="/team2.svg" 
+    className="w-full h-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl" 
+    alt="Team Image"
+  />
+</motion.div>
         </div>
       </div>
     </div>
