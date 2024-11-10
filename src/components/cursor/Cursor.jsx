@@ -25,6 +25,7 @@ const CustomCursor = () => {
       animate={{ x: cursorPosition.x, y: cursorPosition.y }}
       transition={{ type: 'spring', stiffness: 500, damping: 30 }}
       whileHover={{ scale: 2 }}
+      onClick={{}}
     />
   );
 };

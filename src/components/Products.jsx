@@ -42,7 +42,7 @@ const Products = () => {
         Products
       </motion.h1>
       <div className="flex flex-row max-h-[60vh] w-[90vw] gap-10 mt-7 flex-wrap items-center justify-center">
-        <div className="relative min-h-[60vh] w-[30%] bg-white shadow-lg rounded-lg overflow-hidden group">
+        <div className="relative max-h-[60vh] w-[30%] bg-white shadow-lg rounded-lg overflow-hidden group">
           {/* Image */}
           <img src="https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/men/mensaparel.webp" alt="Mens" className="w-full h-full object-cover" />
 
@@ -52,7 +52,7 @@ const Products = () => {
             <p className="text-white text-sm mt-2 px-4 text-center"></p>
           </div>
         </div>
-        <div className="relative min-h-[60vh] w-[30%] bg-white shadow-lg rounded-lg overflow-hidden group">
+        <div className="relative max-h-[60vh] w-[30%] bg-white shadow-lg rounded-lg overflow-hidden group">
           {/* Image */}
           <img src="https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/woman.jpg" alt="Mens" className="w-full h-full object-cover" />
 
@@ -62,7 +62,7 @@ const Products = () => {
             <p className="text-white text-sm mt-2 px-4 text-center"></p>
           </div>
         </div>
-        <div className="relative min-h-[60vh] w-[30%] bg-white shadow-lg rounded-lg overflow-hidden group">
+        <div className="relative max-h-[60vh] w-[30%] bg-white shadow-lg rounded-lg overflow-hidden group">
           {/* Image */}
           <img src="https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/sneakers2.jpg" alt="Mens" className="w-full h-full object-cover" />
 
