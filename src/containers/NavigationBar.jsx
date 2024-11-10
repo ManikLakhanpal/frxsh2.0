@@ -41,7 +41,7 @@ function NavigationBar() {
   }, [showNav]);
 
   return (
-    <div className="w-full sticky top-0 h-16 z-50 text-white overflow-x-hidden">
+    <div className="w-full sticky top-0 h-16 z-50 text-white">
       <nav
         ref={mainNavBar}
         style={{
