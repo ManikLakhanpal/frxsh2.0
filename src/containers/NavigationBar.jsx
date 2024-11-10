@@ -18,7 +18,7 @@ function NavigationBar() {
       {
         x: "0%",
         opacity: 1,
-        duration: 0.5,
+        duration: 0.2,
         ease: "expo.inOut",
         paused: true,
         onStart: () => {
@@ -41,7 +41,7 @@ function NavigationBar() {
   }, [showNav]);
 
   return (
-    <div className="w-full sticky top-0 h-16 z-50 text-white overflow-x-hidden">
+    <div className="w-full sticky top-0 h-16 z-50 text-white">
       <nav
         ref={mainNavBar}
         style={{
