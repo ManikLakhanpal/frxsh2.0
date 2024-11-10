@@ -30,16 +30,13 @@ const ResponsiveText = () => {
         fontSize={fontSize}
         position={[0, 0.5, 0]}
         color="#ffffff"
-        emissiveIntensity={100}
+        emissiveIntensity={5}
         emissive="#ffffff"
         anchorX="center"
         anchorY="middle"
       >
         FRXSH
       </Text>
-      <mesh position={[0, -2, 0]}>
-    
-      </mesh>
     </>
   );
 }
