@@ -14,6 +14,7 @@ const Content = () => {
                 </p>
             </div>
         </div>
+        <div className="w-[90vw] ml-[5vw]">
             <div className="flex flex-col mt-28">
                 <p className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
                     Supporting
@@ -25,6 +26,20 @@ const Content = () => {
                     Entrepreneurs
                 </p>
             </div>
+            <div className="flex flex-col mt-28 items-end">
+            <div className="items-start">
+                <p className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
+                    At
+                </p>
+                <p className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"> 
+                    Every 
+                </p>
+                <p className="quote text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"> 
+                    Step
+                </p>
+            </div>
+        </div>
+        </div>
         </div>
         </>
     );
