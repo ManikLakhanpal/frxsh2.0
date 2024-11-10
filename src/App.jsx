@@ -1,20 +1,21 @@
 import Home from "./containers/Home";
 import Shop from "./containers/Shop";
+import { Context } from "./context/Context";
 import CustomCursor from "./components/cursor/Cursor";
 import NavigationBar from "./containers/NavigationBar";
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
-    <CustomCursor/>
+    <Context>
+      <CustomCursor />
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
+        {/* Dynamic Route for Shop Categories */}
+        <Route path="/shop/:category" element={<Shop />} />
       </Routes>
-    </>
-    
+    </Context>
   );
 }
 

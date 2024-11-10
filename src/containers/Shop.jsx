@@ -2,21 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import ProductCard from '../components/ProductCard';
 import Cart from '../components/Cart';
-
-const products = [
-    { name: "Thirsty Thursday T-shirt", price: 500, image: "https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/T-shirt/thirstyThursdayTshirt.webp", description: "Our ultra soft USA made signature t-shirt exclusive to Solid Threads." },
-    { name: "Men's Derek Jeter", price: 1100, image: "https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/T-shirt/jersey.webp", description: "Derek Jeter is your favorite player, and for a good reason." },
-    { name: "Stakes Still High T-Shirt", price: 320, image: "https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/T-shirt/stylishTshirt.jpg", description: "100% combed and ring-spun cotton t-shirt featuring design inspired by Stakes is High" },
-    { name: "Whiskey Helps T-shirt", price: 280, image: "https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/T-shirt/whiskyHelpsTshirt.webp", description: "Our ultra soft USA made signature t-shirt exclusive to Solid Threads." },
-    { name: "Quail Family Tee", price: 300, image: "https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/T-shirt/FamilyTee.webp", description: "Classic fit t-shirt. 100% cotton" },
-    { name: "Freenote Clothe", price: 350, image: "https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/jean/jean jacket.webp", description: "RJ-3 Japanese Selvedge Denim Trucker Jacket" },
-    { name: "PORTUGUESE FLANNEL", price: 699, image: "https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/T-shirt/portogueseFlannelTshirt.webp", description: "Ground Camp-Collar Pointelle-Knit Cotton-Blend Shirt" },
-    { name: "ORSLOW", price: 900, image: "https://w16manik.blr1.cdn.digitaloceanspaces.com/assets/T-shirt/denim.webp", description: "Denim Overshirt" },
-  ]
+import { useParams } from "react-router-dom";
+import { ProductContext } from '../context/Context';
 
 export default function Component() {
   const [cartItems, setCartItems] = useState([])
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const { category } = useParams();
+  const {menProducts, womenProducts, sneekers} = ProductContext();
+  let products = [];
+
+  if (category == "men") {
+    products = menProducts;
+  } else if (category == "women") {
+    products = womenProducts;
+  } else if (category == "sneekers") {
+    products = sneekers;
+  }
 
   useEffect(() => {
     const cart = document.getElementById("cart")
@@ -43,7 +45,7 @@ export default function Component() {
     <div className="bg-black min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="bg-white w-full h-20 rounded-2xl flex justify-center items-center mb-8 shadow-lg">
-          <h1 className="font-semibold text-pretty text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black">Men's Apparel</h1>
+          <h1 className="font-semibold text-pretty text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black">{category.toUpperCase()}</h1>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.map((product, index) => (
