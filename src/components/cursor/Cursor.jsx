@@ -20,7 +20,7 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="custom-cursor"
+      className="custom-cursor border-"
       ref={cursorRef}
       animate={{ x: cursorPosition.x, y: cursorPosition.y }}
       transition={{ type: 'spring', stiffness: 500, damping: 30 }}
