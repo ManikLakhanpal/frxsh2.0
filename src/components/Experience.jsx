@@ -7,7 +7,6 @@ import '../output.css';
 
 const ResponsiveText = () => {
   const [fontSize, setFontSize] = useState(1);
-  const [geometrySize, setGeometrySize] = useState(1);
 
   const updateSizes = () => {
     // Calculate sizes based on window dimensions
@@ -66,8 +65,13 @@ const Cube = () => {
     }
   });
 
+
   return (
     <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} position={[4.5,-0.2,0]}>
+      {/* <boxGeometry args={[  
+        1,1,1
+      ]} /> */}
+      
       <boxGeometry args={[geometrySize, geometrySize, geometrySize]} />
       <MeshTransmissionMaterial
         color="white"

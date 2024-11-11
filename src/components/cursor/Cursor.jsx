@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import './CustomCursor.css'; // Import the CSS file for styling
+import './CustomCursor.css';
 
 const CustomCursor = () => {
   const cursorRef = useRef(null);
@@ -8,7 +8,7 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const handleMouseMove = (event) => {
-      setCursorPosition({ x: event.clientX, y: event.clientY });
+      setCursorPosition({ x: event.clientX - 10, y: event.clientY -80 });
     };
 
     window.addEventListener('mousemove', handleMouseMove);

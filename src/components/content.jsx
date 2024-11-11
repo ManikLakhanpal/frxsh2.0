@@ -14,20 +14,12 @@ const Content = () => {
   const controls3 = useAnimation();
   const controls4 = useAnimation();
   const controls5 = useAnimation();
-  const controls6 = useAnimation();
-  const controls7 = useAnimation();
-  const controls8 = useAnimation();
-  const controls9 = useAnimation();
 
   const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.5 });
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.5 });
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.5 });
   const [ref4, inView4] = useInView({ triggerOnce: true, threshold: 0.5 });
   const [ref5, inView5] = useInView({ triggerOnce: true, threshold: 0.5 });
-  const [ref6, inView6] = useInView({ triggerOnce: true, threshold: 0.5 });
-  const [ref7, inView7] = useInView({ triggerOnce: true, threshold: 0.5 });
-  const [ref8, inView8] = useInView({ triggerOnce: true, threshold: 0.5 });
-  const [ref9, inView9] = useInView({ triggerOnce: true, threshold: 0.5 });
 
   const [hover, setHover] = useState(false);
 
@@ -37,10 +29,6 @@ const Content = () => {
     if (inView3) controls3.start("visible");
     if (inView4) controls4.start("visible");
     if (inView5) controls5.start("visible");
-    if (inView6) controls6.start("visible");
-    if (inView7) controls7.start("visible");
-    if (inView8) controls8.start("visible");
-    if (inView9) controls9.start("visible");
   }, [
     controls1,
     inView1,
@@ -52,14 +40,6 @@ const Content = () => {
     inView4,
     controls5,
     inView5,
-    controls6,
-    inView6,
-    controls7,
-    inView7,
-    controls8,
-    inView8,
-    controls9,
-    inView9,
   ]);
 
   return (

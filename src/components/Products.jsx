@@ -35,7 +35,6 @@ const Products = () => {
 
   return (
     <div
-      id="products"
       id="products" className=" bg-black min-h-screen flex flex-col items-center mt-[7rem] justify-center"
     >
       <motion.h1
