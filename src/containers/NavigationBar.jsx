@@ -85,7 +85,7 @@ function NavigationBar() {
           WebkitBackdropFilter: "blur(18px) saturate(0%)",
           backgroundColor: "rgba(18, 18, 18, 0.75)",
         }}
-        className="hidden top-0 absolute z-50 h-screen w-10/12 rounded-r-lg p-5"
+        className="hidden top-0 absolute z-[2000] h-screen w-10/12 rounded-r-lg p-5"
       >
         <button
           id="closeMobileNav"

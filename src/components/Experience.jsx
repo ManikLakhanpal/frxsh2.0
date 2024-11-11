@@ -1,21 +1,18 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, OrbitControls, MeshTransmissionMaterial } from '@react-three/drei';
+import { Text, MeshTransmissionMaterial } from '@react-three/drei';
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import '../output.css';
-
 
 const ResponsiveText = () => {
   const [fontSize, setFontSize] = useState(1);
 
   const updateSizes = () => {
-    // Calculate sizes based on window dimensions
     const newFontSize = Math.max(0.5, window.innerWidth / 400);
-
     setFontSize(newFontSize);
   };
+
   useEffect(() => {
-    // Update sizes on window resize
     window.addEventListener('resize', updateSizes);
     updateSizes(); // Initial size calculation
 
@@ -23,31 +20,26 @@ const ResponsiveText = () => {
       window.removeEventListener('resize', updateSizes);
     };
   }, []);
-  return (
-    <>
-      <Text
-        fontSize={fontSize}
-        position={[0, 0.5, 0]}
-        color="#ffffff"
-        emissiveIntensity={5}
-        emissive="#ffffff"
-        anchorX="center"
-        anchorY="middle"
-      >
-        FRXSH
-      </Text>
-    </>
-  );
-}
 
-const onMouseMove = (event) => {
-  pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  return (
+    <Text
+      fontSize={fontSize}
+      position={[0, 0.5, 0]}
+      color="#ffffff"
+      emissiveIntensity={5}
+      emissive="#ffffff"
+      anchorX="center"
+      anchorY="middle"
+    >
+      FRXSH
+    </Text>
+  );
 };
 
-const Cube = () => {
+const Cube = ({ isMobile }) => {
   const meshRef = useRef();
   const [geometrySize, setGeometrySize] = useState(Math.max(1, window.innerWidth / 900));
+
   useEffect(() => {
     const handleResize = () => {
       setGeometrySize(Math.max(1, window.innerWidth / 1000));
@@ -58,6 +50,7 @@ const Cube = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.01;
@@ -65,13 +58,12 @@ const Cube = () => {
     }
   });
 
-
   return (
-    <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} position={[4.5,-0.2,0]}>
-      {/* <boxGeometry args={[  
-        1,1,1
-      ]} /> */}
-      
+    <mesh
+      ref={meshRef}
+      rotation={[Math.PI / 2, 0, 0]}
+      position={isMobile ? [1, -0.2, 0] : [4.5, -0.2, 0]} // Adjust position for mobile view
+    >
       <boxGeometry args={[geometrySize, geometrySize, geometrySize]} />
       <MeshTransmissionMaterial
         color="white"
@@ -89,16 +81,17 @@ const Cube = () => {
   );
 };
 
-const Donut = () => {
+const Donut = ({ isMobile }) => {
   const meshRef = useRef();
   const [geometrySize, setGeometrySize] = useState(Math.max(1, window.innerWidth / 900));
-  const [scroll, setScroll] = useState(0);
+
   useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.01;
       meshRef.current.rotation.x += 0.005;
     }
   });
+
   useEffect(() => {
     const handleResize = () => {
       setGeometrySize(Math.max(1, window.innerWidth / 1000));
@@ -108,9 +101,15 @@ const Donut = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   return (
-    <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} position={[-4,1,0]} scale={geometrySize/1.5}>
-      <torusGeometry args={[1.2,0.5,100,100]} />
+    <mesh
+      ref={meshRef}
+      rotation={[Math.PI / 2, 0, 0]}
+      position={isMobile ? [-1, 1.2, 0] : [-4, 1, 0]}
+      scale={geometrySize / 1.5}
+    >
+      <torusGeometry args={[1.2, 0.5, 100, 100]} />
       <MeshTransmissionMaterial
         color="white"
         thickness={0.5}
@@ -127,38 +126,27 @@ const Donut = () => {
   );
 };
 
-
-const CursorLight = () => {
-  const lightRef = useRef();
-
-  useFrame(() => {
-    if (lightRef.current) {
-      lightRef.current.position.set(pointer.x * 10, pointer.y * 10, 10);
-      lightRef.current.target.position.set(0, 0, 0);
-      lightRef.current.target.updateMatrixWorld();
-    }
-  });
-
-  return (
-    <directionalLight ref={lightRef} intensity={1} />
-  );
-};
-
 function TextScene() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <>
-    <div className='h-screen bg-black w-full'>
-    <Canvas>
-      <ambientLight color='#fffff' intensity={10000}/>
-      <Cube />
-      <Donut />
-      <ResponsiveText/>
-    </Canvas>
+    <div className="h-screen bg-black w-full">
+      <Canvas>
+        <ambientLight color="#ffffff" intensity={1} />
+        <Cube isMobile={isMobile} />
+        <Donut isMobile={isMobile} />
+        <ResponsiveText />
+      </Canvas>
     </div>
-     
-    </>
   );
 }
-
 
 export default TextScene;
