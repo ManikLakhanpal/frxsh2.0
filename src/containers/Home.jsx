@@ -5,7 +5,7 @@ import CustomCursor from "../components/cursor/Cursor";
 function Home() {
   return (
     <>
-    <CustomCursor/>
+    {/* <CustomCursor/> */}
       <TextScene />
       <Content />
       <Products />

@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <Context>
-      {/* <CustomCursor /> */}
+      <CustomCursor />
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
