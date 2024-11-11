@@ -1,9 +1,9 @@
 import React from 'react';
 
 const CustomButton = ({ children, onClick, disabled, variant }) => {
-  const baseStyle = "px-4 py-2 rounded-md transition-colors duration-200 font-semibold";
+  const baseStyle = "px-4 py-2 rounded-md transition-colors duration-200 font-semibold border-2 border-white";
   const variantStyles = {
-    primary: "bg-gray-700 text-white hover:bg-gray-600",
+    primary: "bg-black text-white hover:bg-gray-600",
     destructive: "bg-red-600 text-white hover:bg-red-500",
     ghost: "bg-transparent text-gray-300 hover:bg-gray-700"
   };
@@ -20,13 +20,13 @@ const CustomButton = ({ children, onClick, disabled, variant }) => {
 };
 
 const CustomCard = ({ children }) => (
-  <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+  <div className="bg-black rounded-lg border-2 border-white  shadow-lg overflow-hidden">
     {children}
   </div>
 );
 
 const CartItem = ({ item, onRemove }) => (
-  <div className="flex items-center justify-between p-4 mb-4 border-b border-gray-700">
+  <div className="flex items-center justify-between p-4 mb-4 border-b border-white">
     <img src={item.image} alt={item.name} className="w-24 h-24 mr-4 rounded-lg object-cover" />
     <div className="flex-grow">
       <p className="text-lg font-semibold text-gray-100">{item.name}</p>
@@ -46,7 +46,7 @@ const Checkout = ({ isOpen, onClose, items = [], onRemove }) => {
 
   return (
     <div className="w-screen fixed inset-0 bg-black bg-opacity-75 z-50 flex justify-end">
-      <div className="w-screen bg-gray-900 text-gray-100 h-full overflow-y-auto">
+      <div className="w-screen bg-black text-gray-100 h-full overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold text-gray-100">Cart</h1>
