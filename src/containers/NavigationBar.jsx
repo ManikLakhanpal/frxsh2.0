@@ -18,7 +18,7 @@ function NavigationBar() {
       {
         x: "0%",
         opacity: 1,
-        duration: 0.5,
+        duration: 0.2,
         ease: "expo.inOut",
         paused: true,
         onStart: () => {
@@ -41,7 +41,7 @@ function NavigationBar() {
   }, [showNav]);
 
   return (
-    <div className="w-full sticky top-0 h-16 z-50 text-white">
+    <div className="w-full sticky top-0 h-16 z-50 text-white overflow-hidden">
       <nav
         ref={mainNavBar}
         style={{
@@ -60,19 +60,19 @@ function NavigationBar() {
 
         {/* Navigation Links */}
         <div className={linkClasses}>
-          <a href="./#home">HOME</a>
+          <a href="/">HOME</a>
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
-          <a href="./shop">PRODUCTS</a>
+          <a href="/#products">PRODUCTS</a>
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
-          <a href="./#contact">CONTACT US</a>
+          <a href="/contact">CONTACT US</a>
           <div className={underlineClasses}></div>
         </div>
         <div className={linkClasses}>
-          <a href="#contact">LOG IN</a>
+          <a href="/signin">LOG IN</a>
           <div className={underlineClasses}></div>
         </div>
       </nav>
@@ -81,9 +81,9 @@ function NavigationBar() {
       <nav
         ref={navbarMobile}
         style={{
-            backdropFilter: "blur(18px) saturate(0%)",
-            WebkitBackdropFilter: "blur(18px) saturate(0%)",
-            backgroundColor: "rgba(18, 18, 18, 0.75)",
+          backdropFilter: "blur(18px) saturate(0%)",
+          WebkitBackdropFilter: "blur(18px) saturate(0%)",
+          backgroundColor: "rgba(18, 18, 18, 0.75)",
         }}
         className="hidden top-0 absolute z-50 h-screen w-10/12 rounded-r-lg p-5"
       >
@@ -95,17 +95,17 @@ function NavigationBar() {
           X
         </button>
         <div className="flex flex-col h-4/5 justify-around text-lg">
-          <a href="./#home" className="w-fit p-3" onClick={() => setShowNav(false)}>
+          <a href="/" className="w-fit p-3" onClick={() => setShowNav(false)}>
             HOME
           </a>
-          <a className="w-fit p-3" href="./#about" onClick={() => setShowNav(false)}>
-            ABOUT
+          <a className="w-fit p-3" href="/shop/men" onClick={() => setShowNav(false)}>
+            PRODUCTS
           </a>
-          <a className="w-fit p-3" href="./#projects" onClick={() => setShowNav(false)}>
-            PROJECTS
+          <a className="w-fit p-3" href="/contact" onClick={() => setShowNav(false)}>
+            CONTACT US
           </a>
-          <a className="w-fit p-3" href="#contact" onClick={() => setShowNav(false)}>
-            CONTACT
+          <a className="w-fit p-3" href="/signin" onClick={() => setShowNav(false)}>
+            LOG IN
           </a>
         </div>
       </nav>
