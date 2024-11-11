@@ -1,7 +1,18 @@
 .custom-cursor {
   position: fixed;
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(50%, 50%);
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+.custom-cursor2 {
+  position: fixed;
+  width: 50px;
+  height: 50px;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 50%;
   pointer-events: none;
@@ -12,6 +23,9 @@
 
 @media (max-width: 768px) {
   .custom-cursor {
+    display: none;
+  }
+  .custom-cursor2{
     display: none;
   }
 }
