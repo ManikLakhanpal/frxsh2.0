@@ -24,7 +24,7 @@ body {
   margin: 0;
   scroll-behavior: smooth;
   font-family: "Oswald";
-  cursor: none;
+  /* cursor: none; */
 }
 
 .quote{

@@ -9,7 +9,7 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const handleMouseMove = (event) => {
-      setCursorPosition({ x: event.clientX - 10, y: event.clientY -72 });
+      setCursorPosition({ x: event.clientX, y: event.clientY });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -20,7 +20,7 @@ const CustomCursor = () => {
   }, []);
   useEffect(() => {
     const handleMouseMove = (event) => {
-      setCursorPosition2({ x: event.clientX-12, y: event.clientY-80 });
+      setCursorPosition2({ x: event.clientX, y: event.clientY });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -44,7 +44,7 @@ const CustomCursor = () => {
       className="custom-cursor2"
       ref={cursorRef}
       animate={{ x: cursorPosition2.x, y: cursorPosition2.y }}
-      transition={{ type: 'spring', stiffness: 500, damping:35 }}
+      transition={{ type: 'spring', stiffness: 500, damping:60 }}
       whileHover={{ scale: 2 }}
       onClick={{}}
     />
